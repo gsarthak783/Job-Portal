@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "id": "422a",
+      "username": "sarthak",
+      "email": "gsarthak783@gmail.com",
+      "password": "Sarthak@1"
+    },
+    {
+      "id": "43af",
+      "username": "dcdc",
+      "email": "dcdc@gmail.com",
+      "password": "Sarthak"
+    },
+    {
+      "id": "ee03",
+      "username": "sarthak1",
+      "email": "sarthak1@gmail.com",
+      "password": "Sarthak@1"
+    },
+    {
+      "id": "b34a",
+      "username": "sar445",
+      "email": "gsdda3@gmail.com",
+      "password": "Sarthak"
+    },
+    {
+      "id": "f5f3",
+      "username": "Sheetal",
+      "email": "Sheetal@gmail.com",
+      "password": "Sheetalpassword"
+    },
+    {
+      "id": "bbb6"
+    }
+  ]
+}

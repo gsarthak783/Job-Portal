@@ -1,0 +1,155 @@
+get http://localhost:1234/user-api/users
+
+###
+get http://localhost:7000/user-api/user/ravi
+
+
+###
+post http://localhost:1234/user-api/user
+Content-Type: application/json
+
+{
+    "username":"bhhhhva",
+    "email":"bhaves@gmail.com",
+    "password":"bhavesh"
+}
+
+###
+put http://localhost:7000/user-api/user
+Content-Type: application/json
+
+{
+    "username":"bhanu",
+    "email":"bhanu@gmail.com",
+    "password":"bhanu"
+}
+
+###
+delete http://localhost:7000/user-api/user/bhanu
+
+###
+post http://localhost:7000/user-api/user-login
+Content-Type: application/json
+
+{
+    "username":"bhanu",
+    "password":"bhau"
+}
+
+###
+get http://localhost:1234/job-api/jobs
+
+###
+get http://localhost:1234/job-api/job/2
+
+###
+post http://localhost:1234/job-api/job-create
+Content-Type: application/json
+
+{
+    "jobId":"1",
+    "jobTitle":"String",
+    "indusrty":"String",
+    "companyName":"String",
+    "minSalary":"String",
+    "maxSalary":"String",
+    "jobPostingDate":"String",
+    "jobLocation":"String",
+    "employmentType":"String",
+    "experienceLevel":"String",
+    "skills":["1"],
+    "companyUrl":"String",
+    "description":"String",
+    "detail":"String",
+    "benefits":["1"],
+    "rounds":["23"]
+}
+
+###
+get http://localhost:1234/user-api/users/company
+
+###
+get http://localhost:1234/apply-api/jobs
+
+###
+get http://localhost:1234/apply-api/job/ravi
+
+###
+get http://localhost:1234/apply-api/job
+Content-Type: application/json
+
+{
+    "username":"ravi",
+    "jobId":"26"
+}
+
+
+###
+get http://localhost:1234/appliedUsers-api/users
+
+###
+get http://localhost:1234/appliedUsers-api/user/ravi
+
+###
+put http://localhost:1234/appliedUsers-api/user-update
+Content-Type: application/json
+
+{
+    "username":"ravi",
+    "jobId":"1001",
+    "user":"ravi",
+    "status":"Accepted"
+}
+
+###
+put http://localhost:1234/apply-api/job-update
+Content-Type: application/json
+
+{
+    "username":"ravi",
+    "jobId":"1001",
+    "user":"ravi",
+    "status":"Accepted"
+}
+
+###
+post http://localhost:1234/user-api/user-update
+Content-Type: application/json
+
+{
+    "username":"ravi"
+}
+
+###
+get http://localhost:1234/salary-api/salary
+
+###
+get http://localhost:1234/salary-api/salary/65e0770eb57e84e34194bf24
+
+###
+post http://localhost:1234/salary-api/salary-create
+Content-Type: application/json
+
+{
+    "industry":"Technology",
+    "jobTitle":"Tester",
+    "description":"Test a frontend or backend application",
+    "salary":"565000",
+    "education":"B.Tech",
+    "skills":"java, .Net, MERN"
+}
+
+###
+delete http://localhost:1234/salary-api/salary-delete/65e076547e793d85791d0a5b
+
+###
+post http://localhost:1234/user-api/user-login-refresh
+Content-Type: application/json
+
+{
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJhdmkiLCJpYXQiOjE3MDk1MzI2ODEsImV4cCI6MTcwOTYxOTA4MX0.Zhjg7gO4ksajlFHKt2Z0AzwmZChqR-GoUhEIW9MNeEI"
+}
+
+
+
+

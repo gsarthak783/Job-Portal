@@ -47,6 +47,8 @@ const MyJobs = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0,0);
+    
     try {
       if (userType === 'user') {
         let fetchData = async () => {

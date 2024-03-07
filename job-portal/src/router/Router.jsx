@@ -13,6 +13,7 @@ import Register from '../pages/Register';
 import AboutUsPage from '../pages/AboutUsPage';
 import ProfilePage from '../pages/ProfilePage';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import ErrorPage from '../pages/ErrorPage';
 
   const router = createBrowserRouter([
     {
@@ -68,11 +69,23 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
         {
           path: "/login",
           element: <Login/>
-        }
-      ]
+        },
+        
+       
+      ],
+      
     },
+
+    {
+      path: "*",
+      element: <ErrorPage />
+    }
     
     
   ]);
+
+  
+
+
 
   export default router;

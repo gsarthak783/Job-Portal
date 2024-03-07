@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-200 text- py-12">
+    <footer className="bg-slate-200 text- py-6 ">
       <div className="max-w-screen-2xl container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
+          <div className="">
             <h2 className="text-2xl font-bold">Contact Us</h2>
             <p className="mt-2">Email: gsarthak783@gmail.com</p>
             <p>Phone: +1234567890</p>
@@ -44,11 +44,11 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div>
+          <div className="text-justify">
             <h2 className="text-2xl font-bold">Useful Links</h2>
             <ul className="mt-2">
               <li>
-                <Link to="/about-us" href="#" className="text- hover:text-black">
+                <Link to="/about-us"  className="text- hover:text-black">
                   About Us
                 </Link>
               </li>

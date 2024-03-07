@@ -1,7 +1,14 @@
 import React from "react";
 import { LuDot } from "react-icons/lu";
+import { useEffect } from "react";
 
 const AboutUsPage = () => {
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, []);
+
+
   return (
     <div className="max-w-screen-xl mx-auto px-4 py-12">
       <div className="text-center mb-8">

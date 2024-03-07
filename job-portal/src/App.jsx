@@ -3,12 +3,13 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import AuthService from './authService/AuthService';
+import ErrorBoundry from './components/ErrorBoundary';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshCurrentUser } from './slices/loginSlice';
 
 function App() {
-
+  
   const authservice = AuthService();
   const dispatch = useDispatch();
 
@@ -28,11 +29,15 @@ function App() {
 
   return (
     <div>
-    <Navbar/>
-    <div className='min-h-64'>
-    <Outlet/>
-    </div>
-    <Footer />
+      <ErrorBoundry>
+        
+        <Navbar/>
+      <div className='min-h-64 mt-16'>
+       <Outlet/>
+      </div>
+       <Footer />
+      </ErrorBoundry>
+    
     </div>
   )
 }

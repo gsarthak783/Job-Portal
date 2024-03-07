@@ -19,6 +19,7 @@ const ProfilePage = () => {
   let userType = currentUser.userType;
 
   useEffect(() => {
+    window.scrollTo(0,0);
     setProfileData(currentUser);
   }, []);
 

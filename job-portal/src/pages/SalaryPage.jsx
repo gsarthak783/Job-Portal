@@ -16,6 +16,8 @@ const SalaryPage = () => {
 
   const { register, handleSubmit } = useForm();
   useEffect(() => {
+    window.scrollTo(0,0);
+    
     const fetchData = async () => {
       try {
         const res = await axios.get('http://localhost:1234/salary-api/salary-active')

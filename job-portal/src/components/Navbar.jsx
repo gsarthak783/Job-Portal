@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(0);
 
   const { currentUser, loginStatus, errorMessage, isPending } = useSelector(state => state.loginState)
-  let userType = currentUser.userType;
+  let userType = currentUser?.userType;
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -33,8 +33,8 @@ const Navbar = () => {
 
   ];
   return (
-    <header className="max-w-screen-2xl container mx-auto xl:px-20 px-4 bg-slate-100">
-      <nav className="flex justify-between items-center py-6">
+    <div className="max-w-screen-2xl container mx-auto xl:px-20 px-4 bg-slate-100 fixed w-full top-0 left-0 z-10">
+      <nav className="flex justify-between items-center py-4 ">
         <NavLink to="/" className="flex items-center gap-2 text-2xl">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -231,7 +231,7 @@ const Navbar = () => {
 
         </ul>
       </div>
-    </header>
+    </div>
   );
 };
 

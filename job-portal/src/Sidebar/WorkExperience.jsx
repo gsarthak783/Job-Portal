@@ -10,7 +10,7 @@ const WorkExperience = ({handleChange}) => {
           <input onChange={handleChange} type="radio" value="" name="test" />
           <span className="checkmark"></span>Any experience
         </label>
-        <InputField
+        <InputField 
           handleChange={handleChange}
           value="Entry-Level"
           title="Entry-Level"

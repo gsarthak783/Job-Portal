@@ -22,6 +22,9 @@ const JobDetails = () => {
   let status = 'Applied'
 
   useEffect(() => {
+
+    window.scrollTo(0,0);
+    
     try {
       let fetchData = async () => {
         const res = await axios.get(`http://localhost:1234/job-api/job/${id}`)

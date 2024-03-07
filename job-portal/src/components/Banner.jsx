@@ -24,7 +24,7 @@ const Banner = ({ handleInputChange, query }) => {
   };
 
   return (
-    <div className="relative">
+    <div className=" relative">
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index}>

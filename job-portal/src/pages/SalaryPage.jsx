@@ -10,20 +10,23 @@ const SalaryPage = () => {
   const [salary, setSalary] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [flag, setFlag] = useState(false);
+  const [result, setResult] = useState('');
+  const [error, setError] = useState('');
 
   const { currentUser } = useSelector(state => state.loginState)
   let userType = currentUser?.userType || '';
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   useEffect(() => {
     window.scrollTo(0,0);
-    
+
     const fetchData = async () => {
       try {
         const res = await axios.get('http://localhost:1234/salary-api/salary-active')
 
         console.log(res)
         setSalary(res.data.payload)
+
       }
       catch (err) {
 
@@ -43,6 +46,11 @@ const SalaryPage = () => {
         let res = await axios.post('http://localhost:1234/salary-api/salary-create', data)
     
         console.log(res)
+
+        if (res.status === 201) {  
+          reset();
+          setResult(res.data.message)
+        }
       }
       else{
         toast.error('Mandatory fields are required!!',{
@@ -53,7 +61,7 @@ const SalaryPage = () => {
       
     }
     catch(err){
-
+      setError(err.message)
     }
     
   }
@@ -183,7 +191,8 @@ const SalaryPage = () => {
                   />
                 </div>
               </div>
-
+              {error?.length !== 0 && <p className='text-red-500'>{error}</p>}
+              {result?.length !== 0 && <p className='text-green-500'>{result}</p>}
 
 
               <div className=" items-center justify-between">

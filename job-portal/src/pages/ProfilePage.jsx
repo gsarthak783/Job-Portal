@@ -70,7 +70,7 @@ const ProfilePage = () => {
         {profileData && (
           <>
             <div className="flex justify-center">
-              <img src={profileData.imageUrl} alt="Profile" className="w-32 h-32 rounded-full mb-4" />
+              <img src={profileData.imageUrl} alt="Profile" className="w-32 h-32 rounded-full mb-4 border-4" />
             </div>
             <div className="text-center mb-4">
               <h2 className="text-2xl font-bold">{currentUser.userType === 'user' ? `${profileData.firstName} ${profileData.lastName}` : profileData.companyName}</h2>

@@ -6,7 +6,7 @@ import axios from "axios";
 
 const MyJobs = () => {
 
-  const { currentUser } = useSelector(state => state.loginState)
+  const { currentUser, loginStatus } = useSelector(state => state.loginState)
   let username = currentUser.username;
   let userType = currentUser.userType || '';
   console.log(currentUser.userType);
@@ -48,7 +48,7 @@ const MyJobs = () => {
 
   useEffect(() => {
     window.scrollTo(0,0);
-    
+
     try {
       if (userType === 'user') {
         let fetchData = async () => {
@@ -86,7 +86,7 @@ const MyJobs = () => {
 
   return (
     <div>
-      {login === false ? (
+      {loginStatus === false ? (
         <>
           <div className="min-h-screen flex flex-col justify-between bg-slate-50">
             <div className="flex-grow flex justify-center items-center">
@@ -131,7 +131,7 @@ const MyJobs = () => {
                               <td className="border p-2">{job.jobLocation}</td>
                               <td className="border p-2">{job.minSalary}</td>
                               <td className="border p-2">{job.maxSalary}</td>
-                              <td className={`border p-2 font-semibold ${job.status === 'Accepted' ? 'text-green-500' : job.status === 'Rejected' ? 'text-red-500' : ''}`}>{ex.status}</td>
+                              <td className={`border p-2 font-semibold ${job.status === 'Accepted' ? 'text-green-500' : job.status === 'Rejected' ? 'text-red-500' : ''}`}>{job.status}</td>
                             </tr>
                           ))}
                         </tbody>
@@ -153,13 +153,14 @@ const MyJobs = () => {
                 <div className="max-w-6xl w-full bg-white p-8 rounded-lg shadow-md">
                   <h1 className="text-2xl font-bold mb-6 text-center">Job Applications</h1>
                   <div className="space-y-4 overflow-x-auto">
-                    {data.jobs?.map((job, jobIndex) => (
+                    {data?.jobs?.map((job, jobIndex) => (
                       <div key={jobIndex} className="border p-4 rounded-lg">
                         <div className="flex justify-between items-center">
                           <h2 className="text-lg font-semibold">Job:
                             <Link to={`/jobs/${job.jobId}`} className="hover:underline">
                               {job.jobId}
                             </Link></h2>
+
                           <button
                             className="bg-blue-500 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-sm cursor-pointer"
                             onClick={() => toggleJob(jobIndex)}

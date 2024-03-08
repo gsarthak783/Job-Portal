@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import UserRegister from '../components/UserRegister';
 import CompanyRegister from '../components/CompanyRegister';
 
@@ -8,6 +8,10 @@ const Register = () => {
 
 
   const [userType, setUserType] = useState('user');
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, []);
 
   const handleUserType = (event) => {
     setUserType(event.target.value);

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import React, { useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
+import CreatableSelect from "react-select/creatable";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
@@ -237,6 +238,17 @@ const CreateJob = () => {
                 <option value="Senior">Senior</option>
               </select>
             </div>
+          </div>
+
+          <div className="">
+            <label className="block mb-2 text-lg">Required Skill Sets:</label>
+            <CreatableSelect
+              className="create-job-input py-4"
+              defaultValue={selectedOption}
+              onChange={setSelectedOption}
+              options={options}
+              isMulti
+            />
           </div>
 
           {/* 6th row */}

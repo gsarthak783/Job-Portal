@@ -100,13 +100,13 @@ const Navbar = () => {
                     <Link to='/profile-page'>
                       <img
                         className="h-10 w-10 rounded-full"
-                        src={currentUser.imageUrl}
+                        src={currentUser?.imageUrl}
                         alt=""
                       />
                     </Link>
                   </div>
                   <div className="gap-4 mx-4 font-bold">
-                    {currentUser.username}
+                    {currentUser?.username}
                   </div>
 
                 </div>

@@ -45,13 +45,23 @@ const Login = () => {
   };
 
   useEffect(() => {
+
+    window.scrollTo(0,0);
+    
     if (loginStatus && isPending === false) {
 
       toast('Login Successful')
       console.log('Login Successful')
 
+      // setTimeout(() => {
+      //   const { from } = location.state || { from: { pathname: '/' } };
+      //   history.replace(from);
+      // }, 3000);
+
       const { from } = location.state || { from: { pathname: '/' } };
-      history.replace(from);
+        history.replace(from);
+
+      
     }
   }, [loginStatus])
 

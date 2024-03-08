@@ -274,14 +274,14 @@ const loginUserRefresh = async (req,res)  => {
      //get bearer token from the header of req object
      const bearerToken = req.body.token;
     // console.log(req.body);
-     console.log(bearerToken);
+    
 
      //get token
      if(bearerToken){
         
         //verify the token
         let decodedToken =  jwt.verify(bearerToken,process.env.SECRET_KEY) 
-        console.log("Decoded Data = ",decodedToken)
+        
             res.send({message:"Token",payload:decodedToken})
     }else{
         res.send({Message:"Unauthorised Access"})

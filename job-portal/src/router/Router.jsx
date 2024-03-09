@@ -14,6 +14,7 @@ import AboutUsPage from '../pages/AboutUsPage';
 import ProfilePage from '../pages/ProfilePage';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import ErrorPage from '../pages/ErrorPage';
+import PrivacyPolicy from '../pages/PrivacyPolicy';
 
   const router = createBrowserRouter([
     {

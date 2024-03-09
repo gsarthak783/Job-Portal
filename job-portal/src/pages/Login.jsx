@@ -35,6 +35,7 @@ const Login = () => {
 
     if (userObj.username !== '' &&
       userObj.password !== '') {
+        console.log(userObj)
       const formData = { userType, ...userObj }
       dispatch(userLoginPromiseStatus(formData))
 

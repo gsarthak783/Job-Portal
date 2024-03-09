@@ -9,6 +9,9 @@ export default {
       colors: {
         "primary": "#141414",
       //  "blue": "#3575E2"
+      },
+      spacing: {
+        '128': '32rem',
       }
     },
     listStyleType:{

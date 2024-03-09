@@ -9,7 +9,9 @@ const Banner = ({ handleInputChange, query }) => {
   const images = [
     "images/banner1.jpg",
     "images/banner3.jpg",
-    "images/banner4.jpg"
+    "images/banner4.jpg",
+   
+    
   ];
 
   const settings = {
@@ -29,7 +31,7 @@ const Banner = ({ handleInputChange, query }) => {
         {images.map((image, index) => (
           <div key={index}>
             <div
-              className="bg-cover bg-center h-72"
+              className="bg-cover bg-center h-128"
               style={{ backgroundImage: `url(${image})` }}
             ></div>
           </div>
@@ -52,7 +54,7 @@ const Banner = ({ handleInputChange, query }) => {
                   type="text"
                   name="username"
                   id="username"
-                  className="block flex-1 border-2 border-black bg-transparent py-1.5 pl-8 text-black placeholder:text-black  focus:ring-0 sm:text-sm sm:leading-6"
+                  className="block flex-1  outline-none border-2 border-slate-700 bg-transparent py-1.5 pl-8 text-black placeholder:text-black  focus:ring-0 sm:text-sm sm:leading-6 rounded"
                   placeholder="What position are you looking for ?"
                   onChange={handleInputChange}
                   value={query}
@@ -62,7 +64,7 @@ const Banner = ({ handleInputChange, query }) => {
 
               <button
                 type="submit"
-                className="bg-blue-500 py-2 px-8 text-white md:rounded-e-md md:rounded-s-none rounded"
+                className="bg-blue-500 py-2 ml-4 px-8 text-white  rounded"
               >
                 Search
               </button>

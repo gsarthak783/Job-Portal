@@ -11,10 +11,12 @@ import JobDetails from '../pages/JobDetails';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import AboutUsPage from '../pages/AboutUsPage';
+import TermsOfServicePage from '../pages/Terms';
 import ProfilePage from '../pages/ProfilePage';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import ErrorPage from '../pages/ErrorPage';
-import PrivacyPolicy from '../pages/PrivacyPolicy';
+import Privacy from '../pages/Privacy';
+
 
   const router = createBrowserRouter([
     {
@@ -55,6 +57,14 @@ import PrivacyPolicy from '../pages/PrivacyPolicy';
         {
           path: "/about-us",
           element: <AboutUsPage/>
+        },
+        {
+          path: "/privacy-policy",
+          element: <Privacy/>
+        },
+        {
+          path: "/terms",
+          element: <TermsOfServicePage/>
         },
         {
           path: "/profile-page",

@@ -4,7 +4,8 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
 import { useDispatch, useSelector } from 'react-redux';
 import { clearState } from '../slices/loginSlice';
-
+import Logo from '../assets/Logo.png';
+import Logo2 from '../assets/Logo2.png';
 const Navbar = () => {
 
   const navigate = useNavigate();
@@ -35,8 +36,8 @@ const Navbar = () => {
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-20 px-4 bg-slate-100 fixed w-full top-0 left-0 z-10">
       <nav className="flex justify-between items-center py-4 ">
-        <NavLink to="/" className="flex items-center gap-2 text-2xl">
-          <svg
+        <NavLink to="/" className="flex items-center gap-2 ml-8 ">
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             width="29"
             height="30"
@@ -51,8 +52,9 @@ const Navbar = () => {
               fillOpacity="0.4"
             />
             <circle cx="16.9857" cy="17.4857" r="12.0143" fill="#3575E2" />
-          </svg>
-          <span>JobPortal</span>
+          </svg> */}
+          <img src={Logo2} className="h-12" alt="" />
+          {/* <span>JobPortal</span> */}
         </NavLink>
 
         {/* nav items */}

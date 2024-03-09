@@ -53,30 +53,30 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="#" className="text- hover:text-black">
+              <Link to=""  className="text- hover:text-black">
                   Careers
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text- hover:text-black">
+              <Link to=""  className="text- hover:text-black">
                   Blog
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text- hover:text-black">
-                  Terms of Service
-                </a>
+              <Link to="/terms"  className="text- hover:text-black">
+                 Terms of service
+                </Link>
               </li>
               <li>
-                <a href="#" className="text- hover:text-black">
+              <Link to="/privacy-policy"  className="text- hover:text-black">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="text-m mt-6 border-t border-gray-700 pt-4 text-center">
-          <p>&copy; {new Date().getFullYear()} JobPortal. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} CareerForge. All rights reserved.</p>
         </div>
       </div>
     </footer>

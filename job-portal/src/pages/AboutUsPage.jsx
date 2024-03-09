@@ -21,7 +21,7 @@ const AboutUsPage = () => {
         <div>
           <h2 className="text-2xl font-bold text-blue-500 mb-4">Our Mission</h2>
           <p className="text-lg text-gray-700">
-            At JobPortal, our mission is to connect job seekers with the right opportunities
+            At CareerForge, our mission is to connect job seekers with the right opportunities
             and empower them to achieve their career goals. We strive to make the job search
             process easier, faster, and more effective for everyone.
           </p>

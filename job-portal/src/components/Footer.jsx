@@ -75,7 +75,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="text-m mt-12 border-t border-gray-700 pt-4 text-center">
+        <div className="text-m mt-6 border-t border-gray-700 pt-4 text-center">
           <p>&copy; {new Date().getFullYear()} JobPortal. All rights reserved.</p>
         </div>
       </div>

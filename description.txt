@@ -1,0 +1,31 @@
+Project Description: Job Portal Application
+
+Overview:
+The Job Portal Application is a comprehensive platform designed to streamline the recruitment process for both job seekers and employers. It offers two types of registration: user and company. Users can browse through a wide range of job listings, apply for positions that match their skills and preferences, and keep track of their applications. On the other hand, companies can post job openings, review applications, and manage the recruitment process efficiently.
+
+Key Features:
+
+User Registration: Job seekers can create accounts with their personal information, including name, contact details, and professional qualifications. They can also upload their resumes to showcase their skills and experiences.
+
+Company Registration: Employers can register their organizations on the platform, providing details such as company name, industry, and contact information. They can create job postings and manage recruitment activities from their dashboard.
+
+Job Search and Application: Users can search for job opportunities based on various criteria such as location, industry, and job title. They can view detailed job descriptions and apply for positions directly through the platform.
+
+Application Management: Companies can review job applications submitted by users. They can view applicant profiles, including resumes, cover letters, and other relevant documents. Employers have the option to accept or reject applications based on their requirements.
+
+Technology Stack:
+
+Frontend: React.js with Tailwind CSS for responsive UI design
+Backend: Node.js with Express.js for server-side logic
+Database: MongoDB for storing user profiles, job listings, and application data
+Authentication: JSON Web Tokens (JWT) for secure user authentication and authorization
+
+Benefits:
+
+Efficiency: The application streamlines the recruitment process, saving time and resources for both job seekers and employers.
+Accessibility: Users can access the platform from any device with an internet connection, making it convenient to search for jobs or manage recruitment tasks on the go.
+Customization: The platform offers customizable features and settings to meet the specific needs of users and companies in different industries and sectors.
+Scalability: With a modular architecture and scalable infrastructure, the application can accommodate growing user bases and expanding job listings without compromising performance.
+
+Conclusion:
+The Job Portal Application provides a user-friendly and efficient solution for job seekers and employers to connect and collaborate in the recruitment process. Whether you're looking for your next career opportunity or seeking qualified candidates for your organization, the platform offers a comprehensive set of features to meet your needs effectively.

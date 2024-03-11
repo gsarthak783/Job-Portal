@@ -7,7 +7,8 @@ import EmploymentType from './EmploymentType'
 
 const Sidebar = ({ handleChange }) => {
   return (
-    <div className='space-y-5'>
+    <div className=''>
+      <div className='space-y-5 hidden md:block'>
         <h3 className='text-lg font-bold mb-2'>Filters</h3>
         <Location handleChange={handleChange}/>
         <Salary handleChange={handleChange} />
@@ -15,6 +16,19 @@ const Sidebar = ({ handleChange }) => {
         <WorkExperience handleChange={handleChange}/>
         <EmploymentType handleChange={handleChange}/>
     </div>
+
+    <div
+        className={`md:hidden flex flex-cols gap-10 px-2 py-2 bg- rounded-m `}
+      >
+        <h3 className='text-lg font-bold mb-2'>Filters</h3>
+        <Location handleChange={handleChange}/>
+        <WorkExperience handleChange={handleChange}/>
+        <EmploymentType handleChange={handleChange}/>
+
+    </div>
+
+    </div>
+    
   )
 }
 

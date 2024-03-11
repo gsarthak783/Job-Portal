@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -7,6 +7,7 @@ import { LuDot } from "react-icons/lu";
 
 const JobDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   console.log(id);
   const [job, setJob] = useState({});
   const [data, setData] = useState({});
@@ -90,6 +91,7 @@ const JobDetails = () => {
 
 
         Swal.fire('Success', 'You have successfully applied for the job!', 'success');
+      //  navigate('/');
       }
       catch (error) {
         Swal.fire('Error', 'Failed to apply for the Job. Try again later.', 'error');

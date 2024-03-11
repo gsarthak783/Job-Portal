@@ -4,6 +4,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import CreatableSelect from "react-select/creatable";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -15,6 +16,7 @@ const CreateJob = () => {
   const [status, setStatus] = useState('active')
 
   const username = currentUser.username;
+  const userType = currentUser?.userType;
 
   let currentDate = new Date().toISOString().slice(0,10);
 
@@ -60,7 +62,7 @@ const CreateJob = () => {
         && formData.minSalary !== '' && formData.maxSalary !== ''
         && formData.jobLocation !== '' && formData.experienceLevel !== ''
         && formData.description !== '' && formData.detail !== ''
-        && formData.rounds !== null
+        && formData.rounds !== null && formData.industry != ''
       ) {
         // console.log(formData)
         //make http post request
@@ -101,9 +103,8 @@ const CreateJob = () => {
     { value: "Redux", label: "Redux" },
   ];
 
-  // console.log(watch("example"));
-
-  return (
+   
+  return userType === 'company' ? (
     <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
       {/* <PageHeader title={"Post A Job"} path={"Create Job"} /> */}
 
@@ -132,7 +133,7 @@ const CreateJob = () => {
           {/* 2nd row */}
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="lg:w-1/2 w-full">
-              <label className="block mb-2 text-lg">Industry</label>
+              <label className="block mb-2 text-lg">Industry <span className='text-red-500'>*</span></label>
               <select
                 {...register("industry")}
                 className="create-job-input "
@@ -349,7 +350,13 @@ const CreateJob = () => {
       </div>
       <ToastContainer />
     </div>
-  );
+  ) :
+
+  (
+    <Navigate to='/' />
+  )
+
+              
 };
 
 export default CreateJob;

@@ -15,22 +15,8 @@ const Salary = ({ handleChange }) => {
 
         <InputField
           handleChange={handleChange}
-          value={6}
-          title="< 6LPA"
-          name="test2"
-        />
-
-        <InputField
-          handleChange={handleChange}
           value={10}
           title="< 10LPA"
-          name="test2"
-        />
-
-        <InputField
-          handleChange={handleChange}
-          value={15}
-          title="< 15LPA"
           name="test2"
         />
 
@@ -43,8 +29,22 @@ const Salary = ({ handleChange }) => {
 
         <InputField
           handleChange={handleChange}
-          value={25}
-          title="< 25LPA"
+          value={30}
+          title="< 30LPA"
+          name="test2"
+        />
+
+        <InputField
+          handleChange={handleChange}
+          value={40}
+          title="< 40LPA"
+          name="test2"
+        />
+
+        <InputField
+          handleChange={handleChange}
+          value={50}
+          title="< 50LPA"
           name="test2"
         />
       </div>

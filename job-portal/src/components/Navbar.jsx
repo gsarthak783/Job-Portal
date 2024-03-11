@@ -30,7 +30,7 @@ const Navbar = () => {
   };
   const navItems = [
     { path: "/", title: "Home" },
-    { path: "/salary", title: "Jobs & Estimates" },
+    { path: "/salary", title: "Estimates" },
 
   ];
   return (
@@ -53,7 +53,7 @@ const Navbar = () => {
             />
             <circle cx="16.9857" cy="17.4857" r="12.0143" fill="#3575E2" />
           </svg> */}
-          <img src={Logo2} className="h-12" alt="" />
+          <img src={Logo2} className="h-10" alt="CareerForge" />
           {/* <span>JobPortal</span> */}
         </NavLink>
 
@@ -70,19 +70,27 @@ const Navbar = () => {
             </li>
           ))}
           {userType === 'user' ? (
-            <NavLink to="/my-job" className="text-base text-primary">
+            <li>
+              <NavLink to="/my-job" className="text-base text-primary">
               Jobs
             </NavLink>
+            </li>
+            
           ) : (
             <>
               {userType === 'company' ? (
                 <>
-                  <NavLink to="/my-job" className="text-base text-primary">
+                <li>
+                <NavLink to="/my-job" className="text-base text-primary">
                     Applications
                   </NavLink>
-                  <NavLink to="/post-job" className="text-base text-primary">
+                </li>
+                 <li>
+                 <NavLink to="/post-job" className="text-base text-primary">
                     Post Job
                   </NavLink>
+                 </li>
+                  
                 </>
               ) : (
                 <>
@@ -166,7 +174,7 @@ const Navbar = () => {
 
       {/* mobile menu items */}
       <div
-        className={`px-4 bg-black py-5 rounded-sm ${isMenuOpen ? "" : "hidden" }`}
+        className={`md:hidden block px-4 bg-black py-5 rounded-sm ${isMenuOpen ? "" : "hidden" }`}
       >
         <ul>
           {navItems.map(({ path, title }) => (

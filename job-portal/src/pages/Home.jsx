@@ -60,10 +60,11 @@ const Home = () => {
     const endIndex = startIndex + itemsPerPage;
     return { startIndex, endIndex };
   };
-
+  
   // Function to handle next page
   const nextPage = () => {
     if (currentPage < Math.ceil(filteredItems.length / itemsPerPage)) {
+      window.scrollTo(0,540);
       setCurrentPage(currentPage + 1);
     }
   };
@@ -71,6 +72,7 @@ const Home = () => {
   // Function to handle previous page
   const prevPage = () => {
     if (currentPage > 1) {
+      window.scrollTo(0,540);
       setCurrentPage(currentPage - 1);
     }
   };
@@ -104,7 +106,7 @@ const Home = () => {
       );
       //console.log(filteredJobs);
     }
-
+  
     // Slice the data based on the current page
     const { startIndex, endIndex } = calculatePageRange();
     filteredJobs = filteredJobs?.slice(startIndex, endIndex);

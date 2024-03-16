@@ -55,21 +55,18 @@ export let loginSlice = createSlice({
     },
     extraReducers: builder => builder
     .addCase(userLoginPromiseStatus.pending, (state, action) => {
-        // console.log("state in pending", state)
-        // console.log("action in pending",action)
+        
         state.isPending = true;
     })
     .addCase(userLoginPromiseStatus.fulfilled, (state, action) => {
-        // console.log("state in fulfilled", state)
-        // console.log("action in fulfilled",action)
+       
         state.currentUser = action.payload.user;
         state.loginStatus = true;
         state.errorMessage = '';
         state.isPending = false;
     })
     .addCase(userLoginPromiseStatus.rejected, (state, action) => {
-        // console.log("state in rejected", state)
-        // console.log("state in rejected",action)
+        
         state.currentUser = {};
         state.loginStatus = false;
         state.errorMessage = action.payload;

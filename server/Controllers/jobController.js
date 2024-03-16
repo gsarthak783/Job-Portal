@@ -3,6 +3,8 @@ const {Job,Application} = require('../db')
 
 const getJobs = async (req,res) =>{
   const jobsList = await Job.find()
+  // reversing the objects to get the latest job first
+    // let jobs = jobsList.reverse();
     res.status(200).send({message:"Jobs",payload:jobsList})
 }
 

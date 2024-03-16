@@ -107,6 +107,10 @@ const estimateSalary = new mongoose.Schema({
     status:String
 })
 
+const newsletter = new mongoose.Schema({
+    email:String
+})
+
 
 //create Model(class) for the userSchema
 const User = mongoose.model('userAuthentication',userSchema)
@@ -126,5 +130,8 @@ const Application = mongoose.model('applieduser',appliedUsers)
 //create Model class for the Estimated Salary
 const Salary = mongoose.model('salary',estimateSalary)
 
+//create Model class for the Estimated Salary
+const Newsletter = mongoose.model('newsletter',newsletter)
+
 //export  models
-module.exports = {User,Job, Company, Applicant, Application, Salary};
+module.exports = {User,Job, Company, Applicant, Application, Salary, Newsletter};

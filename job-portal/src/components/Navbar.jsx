@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearState } from '../slices/loginSlice';
 import Logo from '../assets/Logo.png';
 import Logo2 from '../assets/Logo2.png';
+
 const Navbar = () => {
 
   const navigate = useNavigate();
@@ -34,7 +35,8 @@ const Navbar = () => {
 
   ];
   return (
-    <div className="max-w-screen-2xl container mx-auto xl:px-20 px-4 bg-slate-100 fixed w-full top-0 left-0 z-10">
+    <div className="max-w-screen-2xl container mx-auto lg:px-8 px-4 bg-slate-100 fixed w-full top-0 left-0 z-10
+    ">
       <nav className="flex justify-between items-center py-4 ">
         <NavLink to="/" className="flex items-center gap-2 ml-8 ">
           {/* <svg
@@ -72,25 +74,25 @@ const Navbar = () => {
           {userType === 'user' ? (
             <li>
               <NavLink to="/my-job" className="text-base text-primary">
-              Jobs
-            </NavLink>
+                Jobs
+              </NavLink>
             </li>
-            
+
           ) : (
             <>
               {userType === 'company' ? (
                 <>
-                <li>
-                <NavLink to="/my-job" className="text-base text-primary">
-                    Applications
-                  </NavLink>
-                </li>
-                 <li>
-                 <NavLink to="/post-job" className="text-base text-primary">
-                    Post Job
-                  </NavLink>
-                 </li>
-                  
+                  <li>
+                    <NavLink to="/my-job" className="text-base text-primary">
+                      Applications
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/post-job" className="text-base text-primary">
+                      Post Job
+                    </NavLink>
+                  </li>
+
                 </>
               ) : (
                 <>
@@ -139,7 +141,7 @@ const Navbar = () => {
         </div>
 
         {/* mobile menu */}
-        <div className="md:hidden block flex flex-cols">
+        <div className="md:hidden block flex flex-cols mr-4">
           <div className="flex mx-4">
             {loginStatus ? (
               <div className="flex flex-cols mx-4">
@@ -147,13 +149,13 @@ const Navbar = () => {
                   <Link to='/profile-page'>
                     <img
                       className="h-10 w-10 rounded-full"
-                      src={currentUser.imageUrl}
+                      src={currentUser?.imageUrl}
                       alt=""
                     />
                   </Link>
                 </div>
                 <div className="flex font-semibold mx-2">
-                  {currentUser.username}
+                  {currentUser?.username}
                 </div>
               </div>
             ) : (<></>)}
@@ -174,7 +176,7 @@ const Navbar = () => {
 
       {/* mobile menu items */}
       <div
-        className={`md:hidden block px-4 bg-black py-5 rounded-sm ${isMenuOpen ? "" : "hidden" }`}
+        className={`md:hidden block px-4 bg-black py-5 rounded-sm ${isMenuOpen ? "" : "hidden"}`}
       >
         <ul>
           {navItems.map(({ path, title }) => (

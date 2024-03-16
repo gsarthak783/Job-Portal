@@ -144,7 +144,7 @@ const createUser = async (req,res) => {
         }
         console.log("Image removed from local folder")
     });
-    res.status(201).send({message:"Seller created",payload:userData})
+    res.status(201).send({message:"Company created",payload:userData})
     }
     else{
         res.send({message:"Username already exist"})

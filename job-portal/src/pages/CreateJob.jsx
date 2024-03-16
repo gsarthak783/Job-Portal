@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from "sweetalert2";
 
 const CreateJob = () => {
 
@@ -18,7 +19,7 @@ const CreateJob = () => {
   const username = currentUser.username;
   const userType = currentUser?.userType;
 
-  let currentDate = new Date().toISOString().slice(0,10);
+  let currentDate = new Date().toISOString().slice(0, 10);
 
   const {
     register,
@@ -68,11 +69,19 @@ const CreateJob = () => {
         //make http post request
         const res = await axios.post('http://localhost:1234/job-api/job-create', formData)
         console.log(res);
-        
-       
-        if (res.status === 201) {  
+
+
+        if (res.status === 201) {
           reset();
+          window.scrollTo(0,0);
           setResult(res.data.message)
+          
+          Swal.fire({
+            title: 'Success',
+            text: 'You Have Successfully Posted a New Job',
+            icon: 'success',
+          });
+
 
         }
         else {
@@ -103,7 +112,7 @@ const CreateJob = () => {
     { value: "Redux", label: "Redux" },
   ];
 
-   
+
   return userType === 'company' ? (
     <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
       {/* <PageHeader title={"Post A Job"} path={"Create Job"} /> */}
@@ -339,7 +348,7 @@ const CreateJob = () => {
 
 
           {error.length !== 0 && <p className='text-red-500'>{error}</p>}
-          {result.length !== 0 && <p className='text-green-500'>{result}</p>}
+          {/* {result.length !== 0 && <p className='text-green-500'>{result}</p>} */}
 
 
           <input
@@ -352,11 +361,11 @@ const CreateJob = () => {
     </div>
   ) :
 
-  (
-    <Navigate to='/' />
-  )
+    (
+      <Navigate to='/' />
+    )
 
-              
+
 };
 
 export default CreateJob;

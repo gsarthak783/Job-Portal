@@ -16,6 +16,8 @@ import ProfilePage from '../pages/ProfilePage';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import ErrorPage from '../pages/ErrorPage';
 import Privacy from '../pages/Privacy';
+import CareersPage from '../pages/CareerPage';
+import BlogPage from '../pages/BlogPage';
 
 
   const router = createBrowserRouter([
@@ -63,6 +65,10 @@ import Privacy from '../pages/Privacy';
           element: <Privacy/>
         },
         {
+          path: "/blog",
+          element: <BlogPage/>
+        },
+        {
           path: "/terms",
           element: <TermsOfServicePage/>
         },
@@ -72,6 +78,10 @@ import Privacy from '../pages/Privacy';
                  <ProfilePage />
           </PrivateRoute>
           
+        },
+        {
+          path: "/careers",
+          element: <CareersPage/>
         },
         {
           path: "/register",

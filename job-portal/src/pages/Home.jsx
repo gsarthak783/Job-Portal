@@ -12,26 +12,29 @@ const Home = () => {
   const itemsPerPage = 6;
   const [isLoading, setIsLoading] = useState(true);
   const [showSidebar, setShowSidebar] = useState(false);
+  let length = 0;
 
 
   useEffect(() => {
-    window.scrollTo(0,0);
-    
+    window.scrollTo(0, 0);
+
     setIsLoading(true);
     let fetchData = async () => {
       const res = await axios.get("http://localhost:1234/job-api/active-jobs")
       let result = res.data.payload;
-      setJobs(result);
+     
+      setJobs(result.reverse());
       setIsLoading(false);
       console.log(result);
+      
     }
     fetchData();
-    
+
 
   }, []);
 
-   // Function to handle toggle sidebar button click event
-   const toggleSidebar = () => {
+  // Function to handle toggle sidebar button click event
+  const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
 
@@ -60,11 +63,11 @@ const Home = () => {
     const endIndex = startIndex + itemsPerPage;
     return { startIndex, endIndex };
   };
-  
+
   // Function to handle next page
   const nextPage = () => {
     if (currentPage < Math.ceil(filteredItems.length / itemsPerPage)) {
-      window.scrollTo(0,540);
+      window.scrollTo(0, 540);
       setCurrentPage(currentPage + 1);
     }
   };
@@ -72,7 +75,7 @@ const Home = () => {
   // Function to handle previous page
   const prevPage = () => {
     if (currentPage > 1) {
-      window.scrollTo(0,540);
+      window.scrollTo(0, 540);
       setCurrentPage(currentPage - 1);
     }
   };
@@ -105,8 +108,9 @@ const Home = () => {
           employmentType.toLowerCase() === selected.toLowerCase()
       );
       //console.log(filteredJobs);
+      length = filteredJobs.length;
     }
-  
+
     // Slice the data based on the current page
     const { startIndex, endIndex } = calculatePageRange();
     filteredJobs = filteredJobs?.slice(startIndex, endIndex);

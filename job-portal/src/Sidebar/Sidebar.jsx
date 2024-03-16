@@ -18,12 +18,15 @@ const Sidebar = ({ handleChange }) => {
     </div>
 
     <div
-        className={`md:hidden flex flex-cols gap-10 px-2 py-2 bg- rounded-m `}
+        className={`md:hidden flex flex-cols gap-10 px-2 py-2 bg- rounded-m  `}
       >
-        <h3 className='text-lg font-bold mb-2'>Filters</h3>
+        <h3 className='text-lg font-bold flex:none mb-2'>Filters</h3>
         <Location handleChange={handleChange}/>
         <WorkExperience handleChange={handleChange}/>
-        <EmploymentType handleChange={handleChange}/>
+        {/* <div className='sm:hidden'>
+        <EmploymentType  handleChange={handleChange}/>
+        </div> */}
+        
 
     </div>
 

@@ -18,6 +18,7 @@ const jobApp = require('./API/jobApi')
 const appliedJobs = require('./API/appliedApi')
 const appliedUsers = require('./API/appliedUsersApi')
 const salaryApp = require('./API/salaryApi')
+const newsletterApp = require('./API/newsletterApi')
 
 //forward req to userApp when path starts with /user-api
 app.use('/user-api',userApp)
@@ -33,6 +34,11 @@ app.use('/appliedUsers-api',appliedUsers)
 
 //forward req to salaryApp when path starts with /salary-api
 app.use('/salary-api',salaryApp)
+
+//forward req  when path starts with /newsletter-api
+app.use('/newsletter-api',newsletterApp)
+
+
 
 // middleware to handle the frontend url requests
 app.use('',(req,res,next)=>{

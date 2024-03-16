@@ -90,7 +90,17 @@ const JobDetails = () => {
         console.log(res2.data)
 
 
-        Swal.fire('Success', 'You have successfully applied for the job!', 'success');
+        // Swal.fire('Success', 'You have successfully applied for the job!', 'success');
+        Swal.fire({
+          title: 'Success',
+          text: 'You have successfully applied for the job!',
+          icon: 'success'
+        }).then((result)=> {
+          if(result.isConfirmed){
+            navigate('/')
+          }
+        })
+       
       //  navigate('/');
       }
       catch (error) {
@@ -111,8 +121,9 @@ const JobDetails = () => {
               <img src={job.imageUrl} alt="" className="w-20 h-20 mb-6 mr-4 flex" />
 
               <div className=" mb-6">
-                <p className="text-xl font-semibold my-2">Job ID: {parseInt(job.jobId)}</p>
-                <p className="text-xl font-semibold">Company Name: {job.companyName}</p>
+                <p className="text-lg font-semibold my-1">Job ID: {parseInt(job.jobId)}</p>
+                <p className="text-lg font-semibold my-1">Job Title: {job.jobTitle}</p>
+                <p className="text-lg font-semibold">Company Name: {job.companyName}</p>
               </div>
             </div>
 
@@ -215,7 +226,7 @@ const JobDetails = () => {
 
         <div className=" mt-2 ">
           <div className="text-lg font-semibold">Company URL:</div>
-          <a href={job.companyUrl} className="hover:underline-offset-2">{job.companyUrl}</a>
+          <a href={job.companyUrl} target="_blank" className="hover:underline-offset-2">{job.companyUrl}</a>
         </div>
 
       </div>

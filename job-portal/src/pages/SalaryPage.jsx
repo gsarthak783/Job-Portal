@@ -8,8 +8,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const SalaryPage = () => {
 
   const [salary, setSalary] = useState([]);
-  const [searchText, setSearchText] = useState("");
-  const [flag, setFlag] = useState(false);
   const [result, setResult] = useState('');
   const [error, setError] = useState('');
 
@@ -33,7 +31,7 @@ const SalaryPage = () => {
       }
     }
     fetchData();
-  }, [searchText]);
+  }, []);
 
   const onSubmit = async (userObj) => {
     try{
@@ -65,24 +63,6 @@ const SalaryPage = () => {
     }
     
   }
-
-  const handleToggle = () => {
-    if (flag === false) {
-      setFlag(true)
-    }
-    else {
-      setFlag(false)
-    }
-  }
-
-  const handleSearch = () => {
-    const filter = salary.filter(
-      (job) =>
-        job.jobTitle.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
-    );
-    console.log(filter);
-    setSalary(filter);
-  };
 
 
   return (

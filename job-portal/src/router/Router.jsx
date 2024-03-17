@@ -1,12 +1,11 @@
 import React from 'react'
+import {createBrowserRouter} from "react-router-dom";
 
-import {createBrowserRouter,} from "react-router-dom";
 import App from '../App';
 import Home from '../pages/Home';
 import MyJobs from '../pages/MyJobs';
 import SalaryPage from '../pages/SalaryPage';
 import CreateJob from '../pages/CreateJob';
-import UpdateJob from '../pages/UpdateJob';
 import JobDetails from '../pages/JobDetails';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
@@ -46,11 +45,6 @@ import BlogPage from '../pages/BlogPage';
                  <CreateJob/>
           </PrivateRoute>
          
-        },
-        {
-          path: "edit-job/:id",
-          element: <UpdateJob/>,
-          loader: ({params}) => fetch(`http://localhost:5000/all-jobs/${params.id}`)
         },
         {
           path:"/jobs/:id",

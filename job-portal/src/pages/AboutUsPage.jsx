@@ -2,6 +2,7 @@ import React from "react";
 import { LuDot } from "react-icons/lu";
 import { useEffect } from "react";
 
+
 const AboutUsPage = () => {
 
   useEffect(() => {

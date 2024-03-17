@@ -5,6 +5,7 @@ import {useForm} from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa6';
+import Swal from 'sweetalert2';
 
 const UserRegister = (user) => {
 
@@ -51,8 +52,18 @@ const UserRegister = (user) => {
            const res = await axios.post('http://localhost:1234/user-api/create-user', formData)
            console.log(res);
            if(res.status === 201){
-               toast.success('Register Successful')
-               navigate('/login')   
+              //  toast.success('Register Successful')
+              //  navigate('/login')   
+              Swal.fire({
+                title: 'Success',
+                text: 'You have successfully registered!',
+                icon: 'success'
+              }).then((result)=> {
+                if(result.isConfirmed){
+                  navigate('/login')
+                }
+              })
+              
             }
             else{
              setError(res.data.message)

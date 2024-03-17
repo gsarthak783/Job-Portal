@@ -62,12 +62,12 @@ const Banner = ({ handleInputChange, query }) => {
                 <FiSearch className="absolute mt-2.5 ml-2 text-black" />
               </div>
 
-              <button
+              {/* <button
                 type="submit"
                 className="bg-blue-500 py-2 ml-4 px-8 text-white  rounded"
               >
                 Search
-              </button>
+              </button> */}
             </div>
           </form>
         </div>

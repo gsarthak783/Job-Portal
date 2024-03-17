@@ -6,10 +6,10 @@ const Location = ({ handleChange }) => {
     <div>
       <h4 className="text-lg font-medium mb-2">Location</h4>
       <div>
-        <label className="sidebar-label-container">
+        {/* <label className="sidebar-label-container">
           <input onChange={handleChange} type="radio" value="" name="test" />
           <span className="checkmark"></span>All
-        </label>
+        </label> */}
         <InputField
           handleChange={handleChange}
           value="Pune"

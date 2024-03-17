@@ -6,10 +6,10 @@ const WorkExperience = ({handleChange}) => {
     <div>
          <h4 className="text-lg font-medium mb-2">Work experience</h4>
       <div>
-        <label className="sidebar-label-container">
+        {/* <label className="sidebar-label-container">
           <input onChange={handleChange} type="radio" value="" name="test" />
           <span className="checkmark"></span>Any experience
-        </label>
+        </label> */}
         <InputField 
           handleChange={handleChange}
           value="Entry-Level"

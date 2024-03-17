@@ -16,10 +16,10 @@ const JobPostingDate = ({ handleChange }) => {
     <div>
       <h4 className="text-lg font-medium mb-2">Date of posting</h4>
       <div>
-        <label className="sidebar-label-container">
+        {/* <label className="sidebar-label-container">
           <input onChange={handleChange} type="radio" value="" name="test" />
           <span className="checkmark"></span>All time
-        </label>
+        </label> */}
         <InputField
           handleChange={handleChange}
           value={twentyFourHoursAgoDate}

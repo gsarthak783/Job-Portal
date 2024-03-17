@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import UserRegister from '../components/UserRegister';
 import CompanyRegister from '../components/CompanyRegister';
 
-
-
 const Register = () => {
 
 

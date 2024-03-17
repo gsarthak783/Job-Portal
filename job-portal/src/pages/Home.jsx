@@ -11,8 +11,7 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
   const [isLoading, setIsLoading] = useState(true);
-  const [showSidebar, setShowSidebar] = useState(false);
-  let length = 0;
+  var length ;
 
 
   useEffect(() => {
@@ -33,10 +32,7 @@ const Home = () => {
 
   }, []);
 
-  // Function to handle toggle sidebar button click event
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar);
-  };
+ 
 
 
   // ----------- Input Filter -----------
@@ -107,10 +103,10 @@ const Home = () => {
           experienceLevel.toLowerCase() === selected.toLowerCase() ||
           employmentType.toLowerCase() === selected.toLowerCase()
       );
-      //console.log(filteredJobs);
-      length = filteredJobs.length;
+      
+      
     }
-
+    length = filteredJobs.length;
     // Slice the data based on the current page
     const { startIndex, endIndex } = calculatePageRange();
     filteredJobs = filteredJobs?.slice(startIndex, endIndex);
@@ -134,10 +130,10 @@ const Home = () => {
           {isLoading ? ( // Loading indicator
             <p className="text-3xl text-center font-semibold">Loading...</p>
           ) : result?.length > 0 ? (
-            <Jobs result={result} />
+            <Jobs result={result} length={length} />
           ) : (
             <>
-              <h3 className="text-lg font-bold mb-2">{result?.length} Jobs</h3>
+              <h3 className="text-lg font-bold mb-2">{length} Jobs</h3>
               <p className="text-3xl text-center font-semibold">No Jobs found</p>
             </>
           )}

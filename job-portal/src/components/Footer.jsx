@@ -13,8 +13,17 @@ const Footer = () => {
 
   const onSubmit = async (userObj) => {
     try{
+
       console.log(userObj)
-      const res = await axios.post("http://localhost:1234/newsletter-api/newsletter-create", userObj)
+      if(userObj.email === ''){
+        Swal.fire({
+          title: 'Invalid Input',
+          text: 'Input field cannot be blank',
+          icon: 'warning',
+        });
+      }
+      else{
+        const res = await axios.post("http://localhost:1234/newsletter-api/newsletter-create", userObj)
       console.log(res.data)
 
       if(res.status===201){
@@ -37,6 +46,8 @@ const Footer = () => {
       }
      
       reset();
+      }
+      
     }
     catch(err){
 

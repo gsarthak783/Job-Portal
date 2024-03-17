@@ -73,13 +73,15 @@ const CreateJob = () => {
 
         if (res.status === 201) {
           reset();
-          window.scrollTo(0,0);
+          
           setResult(res.data.message)
           
           Swal.fire({
             title: 'Success',
             text: 'You Have Successfully Posted a New Job',
             icon: 'success',
+          }).then(() => {
+            window.scrollTo(0,0);
           });
 
 

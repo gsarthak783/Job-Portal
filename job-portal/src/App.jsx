@@ -3,7 +3,6 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import AuthService from './authService/AuthService';
-import ErrorBoundry from './components/ErrorBoundary';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshCurrentUser } from './slices/loginSlice';
@@ -29,15 +28,11 @@ function App() {
 
   return (
     <div>
-      <ErrorBoundry>
-        
         <Navbar/>
       <div className='min-h-64 mt-16'>
        <Outlet/>
       </div>
-       <Footer />
-      </ErrorBoundry>
-    
+       <Footer /> 
     </div>
   )
 }

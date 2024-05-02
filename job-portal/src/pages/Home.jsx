@@ -12,7 +12,7 @@ const Home = () => {
   const itemsPerPage = 6;
   const [isLoading, setIsLoading] = useState(true);
   var length ;
-  axios.defaults.withCredentials =true;
+  // axios.defaults.withCredentials =true;
 
 
   useEffect(() => {

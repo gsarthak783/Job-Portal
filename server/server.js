@@ -9,7 +9,8 @@ const path = require('path')
 // connect frontend and backend port using cors
  app.use(cors({
     origin: ["https://job-portal-website-ten.vercel.app/"],
-    methods:["POST", "GET"]
+    methods:["POST", "GET"],
+    credentials:true
  }))
 //configured env variables
 require('dotenv').config()

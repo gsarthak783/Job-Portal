@@ -34,7 +34,7 @@ const ProfilePage = () => {
   };
 
   const handleUpdateResume = () => {
-    setFlag(true);
+    setFlag(!flag);
   }
 
   const onSubmit = async () => {

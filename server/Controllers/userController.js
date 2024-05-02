@@ -51,8 +51,8 @@ const getUserByUsername = async (req,res) => {
 const createUser = async (req,res) => {
 
     const user = JSON.parse(req.body.data)
-    console.log(user)
-    console.log(req.files)
+    // console.log(user)
+    // console.log(req.files)
 
     //create() => create document + save in collection 
     //let user = await User.create(req.body)

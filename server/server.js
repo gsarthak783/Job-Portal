@@ -7,11 +7,7 @@ const path = require('path')
 //connect to react app
 // app.use(exp.static(path.join(__dirname,'../job-portal/build')))
 // connect frontend and backend port using cors
- app.use(cors({
-    origin: ["https://job-portal-website-ten.vercel.app"],
-    methods:["POST", "GET"],
-    
- }))
+ app.use(cors())
 //configured env variables
 require('dotenv').config()
 

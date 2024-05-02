@@ -8,7 +8,7 @@ const path = require('path')
 // app.use(exp.static(path.join(__dirname,'../job-portal/build')))
 // connect frontend and backend port using cors
  app.use(cors({
-    origin: ["https://job-portal-website-ten.vercel.app/"],
+    origin: ["https://job-portal-website-ten.vercel.app"],
     methods:["POST", "GET"]
  }))
 //configured env variables

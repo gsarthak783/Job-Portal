@@ -6,6 +6,7 @@ const path = require('path')
 
 //connect to react app
 // app.use(exp.static(path.join(__dirname,'../job-portal/build')))
+
 // connect frontend and backend port using cors
  app.use(cors())
 //configured env variables

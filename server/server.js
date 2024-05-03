@@ -1,5 +1,5 @@
 //create express app
-const exp = require('express')
+const exp = require('express')()
 const app = exp();
 const cors = require('cors')
 const path = require('path')
@@ -8,7 +8,13 @@ const path = require('path')
 // app.use(exp.static(path.join(__dirname,'../job-portal/build')))
 
 // connect frontend and backend port using cors
- app.use(cors())
+ app.use(cors(
+  {
+    origin: {"https://job-portal-website-ten.vercel.app"},
+    methods: {"POST", "GET", "DELETE", "PUT"},
+    credentials: true
+  }
+ ))
 //configured env variables
 require('dotenv').config()
 

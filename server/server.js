@@ -1,11 +1,11 @@
 //create express app
-const exp = require('express')()
+const exp = require('express')
 const app = exp();
-const cors = require('cors')
+// const cors = require('cors')
 const path = require('path')
 
 //connect to react app
-// app.use(exp.static(path.join(__dirname,'../job-portal/build')))
+app.use(exp.static(path.join(__dirname,'../job-portal/build')))
 
 // connect frontend and backend port using cors
  // app.use(cors(

@@ -45,9 +45,9 @@ app.use('/salary-api',salaryApp)
 //forward req  when path starts with /newsletter-api
 app.use('/newsletter-api',newsletterApp)
 
-app.get('/',(req,res)=>{
-    res.json("Hello");
-})
+// app.get('/',(req,res)=>{
+//     res.json("Hello");
+// })
 
 // // middleware to handle the frontend url requests
 // app.use('',(req,res,next)=>{

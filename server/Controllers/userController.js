@@ -50,107 +50,80 @@ const getUserByUsername = async (req,res) => {
 
 const createUser = async (req,res) => {
 
-    const user = JSON.parse(req.body.data)
-    // console.log(user)
-    // console.log(req.files)
+    try {
+        const user = JSON.parse(req.body.data);
+        const userCred = user.username;
+        const userType = user.userType;
 
-    //create() => create document + save in collection 
-    //let user = await User.create(req.body)
+        if (userType === 'user') {
+            let checkUser = await User.findOne({ username: userCred });
 
-    //getting the user given username
-    let userCred = user.username;
-    //storing the userType
-    let userType = user.userType;
-  //  console.log(userCred)
-  //if userType is user
-    if(userType === 'user'){
-        let checkUser = await User.findOne({username:userCred})
-        //console.log(checkUser)
-        if(checkUser === null)
-        {
-         //create the document
-        const userDocument = new User(user)
-           
-        //hash the password
-        let hashedPassword = await bcryptjs.hash(userDocument.password,5)
-        //replace plain password with hashed password
-        userDocument.password = hashedPassword;
+            if (checkUser === null) {
+                const userDocument = new User(user);
 
-        //upload  profile image to cloudinary
-        let image = await cloudinary.uploader.upload(req.files[0].path)
-        //add cloudinary image url to userDocument
-        userDocument.imageUrl = image.url;
+                let hashedPassword = await bcryptjs.hash(userDocument.password, 5);
+                userDocument.password = hashedPassword;
 
-        //upload resume to cloudinary
-        let resume = await cloudinary.uploader.upload(req.files[1].path)
-        //add cloudinary resume url to userDocument
-        userDocument.resumeUrl = resume.url;
+                // Upload profile image to Cloudinary
+                let image = await new Promise((resolve, reject) => {
+                    cloudinary.uploader.upload_stream({ resource_type: 'image' }, (error, result) => {
+                        if (error) return reject(error);
+                        resolve(result);
+                    }).end(req.files[0].buffer);
+                });
 
-        fs.unlink(req.files[0].path,err=>{
-            if(err){
-                throw err
+                // Add Cloudinary image URL to userDocument
+                userDocument.imageUrl = image.secure_url;
+
+                // Upload resume to Cloudinary
+                let resume = await new Promise((resolve, reject) => {
+                    cloudinary.uploader.upload_stream({ resource_type: 'image' }, (error, result) => {
+                        if (error) return reject(error);
+                        resolve(result);
+                    }).end(req.files[1].buffer);
+                });
+
+                // Add Cloudinary resume URL to userDocument
+                userDocument.resumeUrl = resume.secure_url;
+
+                // Save the document in the collection
+                let userData = await userDocument.save();
+
+                res.status(201).send({ message: "User created", payload: userData });
+            } else {
+                res.send({ message: "Username already exists" });
             }
-            console.log("Image removed from local folder")
-        });
+        } else {
+            let checkUser = await Company.findOne({ username: userCred });
 
-        fs.unlink(req.files[1].path,err=>{
-            if(err){
-                throw err
+            if (checkUser === null) {
+                const userDocument = new Company(user);
+
+                let hashedPassword = await bcryptjs.hash(userDocument.password, 5);
+                userDocument.password = hashedPassword;
+
+                // Upload image to Cloudinary
+                let image = await new Promise((resolve, reject) => {
+                    cloudinary.uploader.upload_stream({ resource_type: 'image' }, (error, result) => {
+                        if (error) return reject(error);
+                        resolve(result);
+                    }).end(req.files[0].buffer);
+                });
+
+                // Add Cloudinary image URL to userDocument
+                userDocument.imageUrl = image.secure_url;
+
+                // Save the document in the collection
+                let userData = await userDocument.save();
+
+                res.status(201).send({ message: "Company created", payload: userData });
+            } else {
+                res.send({ message: "Username already exists" });
             }
-            console.log("Resume removed from local folder")
-        });
-
-
-        console.log(userDocument)
-        //save the document in the collection
-        let userData = await userDocument.save()
-
-        
-
-        res.status(201).send({message:"User created",payload:userData})
         }
-        else{
-            res.send({message:"Username already exist"})
-        }
+    } catch (error) {
+        res.status(500).send({ message: 'Internal server error', error });
     }
-    else {
-
-        //checking if user already exist
-    let checkUser = await Company.findOne({username:userCred})
-    //console.log(checkUser)
-    if(checkUser === null)
-    {
-        //create the document
-    const userDocument = new Company(user)
-
-    //hash the password
-    let hashedPassword = await bcryptjs.hash(userDocument.password,5)
-    //replace plain password with hashed password
-    userDocument.password = hashedPassword;
-
-    //upload image to cloudinary
-    let image = await cloudinary.uploader.upload(req.files[0].path)
-
-    //add cloudinary image url to userDocument
-    userDocument.imageUrl = image.url;
-
-    console.log(userDocument)
-    //save the document in the collection
-    let userData = await userDocument.save()
-
-    fs.unlink(req.files[0].path,err=>{
-        if(err){
-            throw err
-        }
-        console.log("Image removed from local folder")
-    });
-    res.status(201).send({message:"Company created",payload:userData})
-    }
-    else{
-        res.send({message:"Username already exist"})
-    }
-    
-}
 }
 
 const extractPublicId = (url) => {
@@ -161,46 +134,43 @@ const extractPublicId = (url) => {
 
 const updateUser = async (req,res) => {
 
-    const user = JSON.parse(req.body.data)
-    console.log(req.body)
-    console.log(req.file.path)
+    try {
+        const user = JSON.parse(req.body.data);
+        const userCred = user.username;
 
-    let userCred = user.username;
+        // Check if the user exists
+        let checkUser = await User.findOne({ username: userCred });
 
-    let checkUser = await User.findOne({username:userCred})
-        //console.log(checkUser)
-        if(checkUser !== null)
-        {
+        if (checkUser !== null) {
+            // If there is a file in the request, process it
+            if (req.file) {
+                // Optionally, delete the old resume from Cloudinary if it exists
+                // const oldResumeUrl = checkUser.resumeUrl;
+                // const publicId = extractPublicId(oldResumeUrl);
+                // await cloudinary.uploader.destroy(publicId);
 
-        // let oldResumeUrl = checkUser.resumeUrl;
-        // let publicId = extractPublicId(oldResumeUrl);
-        // console.log(publicId)
-
-         //delete old resume from cloudinary
-        //  let result2 = await cloudinary.uploader.destroy(publicId);
-        //  console.log(result2)
-
-        //upload new resume to cloudinary
-        let result = await cloudinary.uploader.upload(req.file.path)
-        console.log(result)
-
-        //add cloudinary resume url to checkUser
-        checkUser.resumeUrl = result.url;
-        console.log(checkUser)
-        //save the document in the collection
-        let userData = await checkUser.save()
-
-        fs.unlink(req.file.path,err=>{
-            if(err){
-                throw err
+                // Upload new resume to Cloudinary
+                let result = await new Promise((resolve, reject) => {
+                    console.log(req.file.mimetype)
+                    cloudinary.uploader.upload_stream({ resource_type: 'image' }, (error, result) => {
+                        if (error) return reject(error);
+                        resolve(result);
+                    }).end(req.file.buffer);
+                });
+                // Add Cloudinary resume URL to checkUser
+                checkUser.resumeUrl = result.secure_url;
             }
-            console.log("Resume removed from local folder")
-        });
 
-            res.send({message:"Resume Updated",user:userData})
-         
-        
-    }   
+            // Save the updated user document
+            let userData = await checkUser.save();
+
+            res.send({ message: "Resume Updated", user: userData });
+        } else {
+            res.status(404).send({ message: "User not found" });
+        }
+    } catch (error) {
+        res.status(500).send({ message: 'Internal server error', error });
+    } 
 }
 
 const deleteUser = async (req,res) => {

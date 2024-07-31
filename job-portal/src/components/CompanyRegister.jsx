@@ -102,7 +102,7 @@ const CompanyRegister = (user) => {
 
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="lg:w-1/2 w-full">
-            <label className="block mb-2 text-lg">Company Logo <span className='text-red-500'>*</span></label>
+            <label className="block mb-2 text-lg">Company Logo (jpg/png) <span className='text-red-500'>*</span></label>
             <input
               type="file"
               placeholder="Upload Company Logo"

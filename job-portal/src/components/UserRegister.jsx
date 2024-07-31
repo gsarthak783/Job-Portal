@@ -157,7 +157,7 @@ const UserRegister = (user) => {
 
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="lg:w-1/2 w-full">
-              <label className="block mb-2 text-lg">Profile Picture <span className='text-red-500'>*</span></label>
+              <label className="block mb-2 text-lg">Profile Picture (jpg/png)<span className='text-red-500'>*</span></label>
               <input 
              type="file" 
             
@@ -166,7 +166,7 @@ const UserRegister = (user) => {
              className='create-job-input'/>
             </div>
             <div className="lg:w-1/2 w-full">
-              <label className="block mb-2 text-lg">Resume <span className='text-red-500'>*</span></label>
+              <label className="block mb-2 text-lg">Resume (jpg/png)<span className='text-red-500'>*</span></label>
               <input 
              type="file" 
             

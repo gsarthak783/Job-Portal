@@ -20,7 +20,7 @@ const Home = () => {
 
     setIsLoading(true);
     let fetchData = async () => {
-      const res = await axios.get("https://job-portal-server-kappa-green.vercel.app/job-api/active-jobs")
+      const res = await axios.get("http://localhost:1234/job-api/active-jobs")
       let result = res.data.payload;
      
       setJobs(result.reverse());
@@ -32,8 +32,6 @@ const Home = () => {
 
 
   }, []);
-
- 
 
 
   // ----------- Input Filter -----------

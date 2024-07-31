@@ -180,7 +180,7 @@ const Navbar = () => {
 
           {userType === 'user' ? (
             <li className="text-base text-white first:text-white py-1">
-              <NavLink to="/my-job" className={({ isActive }) => (isActive ? "active" : "")}>
+              <NavLink to="/my-job" onClick={handleMenuToggler} className={({ isActive }) => (isActive ? "active" : "")}>
                 Jobs
               </NavLink>
             </li>
@@ -190,12 +190,12 @@ const Navbar = () => {
               {userType === 'company' ? (
                 <>
                   <li className="text-base text-white first:text-white py-1">
-                    <NavLink to="/my-job" className={({ isActive }) => (isActive ? "active" : "")}>
+                    <NavLink to="/my-job" onClick={handleMenuToggler} className={({ isActive }) => (isActive ? "active" : "")}>
                       Applications
                     </NavLink>
                   </li>
                   <li className="text-base text-white first:text-white py-1">
-                    <NavLink to="/post-job" className={({ isActive }) => (isActive ? "active" : "")}>
+                    <NavLink to="/post-job" onClick={handleMenuToggler} className={({ isActive }) => (isActive ? "active" : "")}>
                       Create Job
                     </NavLink>
                   </li>
@@ -209,18 +209,21 @@ const Navbar = () => {
 
           {loginStatus ? (
             <li className="text-white py-1">
-              <Link to="/" onClick={handleLogout}
+              <Link to="/" onClick={()=>{
+                handleLogout();
+                handleMenuToggler();
+              }}
                 className={({ isActive }) => (isActive ? "active" : "")}>Logout</Link>
             </li>
 
           ) : (
             <>
               <li className="text-white py-1">
-                <Link to="/login">Login</Link>
+                <Link to="/login" onClick={handleMenuToggler}>Login</Link>
               </li>
 
               <li className="text-white py-1">
-                <Link to="/register">Register</Link>
+                <Link to="/register" onClick={handleMenuToggler}>Register</Link>
               </li>
             </>
           )}

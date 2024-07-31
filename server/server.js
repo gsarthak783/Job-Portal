@@ -1,20 +1,20 @@
 //create express app
 const exp = require('express')
 const app = exp();
-// const cors = require('cors')
+const cors = require('cors')
 const path = require('path')
 
-//connect to react app
-app.use(exp.static(path.join(__dirname,'../job-portal/build')))
+// //connect to react app
+// app.use(exp.static(path.join(__dirname,'../job-portal/build')))
 
-// connect frontend and backend port using cors
- // app.use(cors(
- //  {
- //    origin: {"https://job-portal-website-ten.vercel.app"},
- //    methods: {"POST", "GET", "DELETE", "PUT"},
- //    credentials: true
- //  }
- // ))
+//connect frontend and backend port using cors
+ app.use(cors(
+  {
+    origin: {"https://job-portal-website-ten.vercel.app"},
+    methods: {"POST", "GET", "DELETE", "PUT"},
+    credentials: true
+  }
+ ))
 //configured env variables
 require('dotenv').config()
 
@@ -45,9 +45,9 @@ app.use('/salary-api',salaryApp)
 //forward req  when path starts with /newsletter-api
 app.use('/newsletter-api',newsletterApp)
 
-// app.get('/',(req,res)=>{
-//     res.json("Hello");
-// })
+app.get('/',(req,res)=>{
+    res.json("Hello");
+})
 
 // // middleware to handle the frontend url requests
 // app.use('',(req,res,next)=>{

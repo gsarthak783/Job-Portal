@@ -116,58 +116,58 @@ const Home = () => {
   const result = filteredData(jobs, selectedCategory, query);
 
   return (
-    <div className="">
-      <Banner query={query} handleInputChange={handleInputChange} />
+    <div className="w-full">
+  <Banner query={query} handleInputChange={handleInputChange} />
 
-      {/* main content */}
-      <div className="bg-slate-100 md:grid grid-cols-4 gap-8 lg:px-10 px-4 py-10">
-        <div className="col-span-1 bg-slate-50 p-4 rounded">
-          <Sidebar handleChange={handleChange} />
-        </div>
-
-        <div className="col-span-3 bg-slate-50 p-4 rounded">
-          {isLoading ? ( // Loading indicator
-            <p className="text-3xl text-center font-semibold">Loading...</p>
-          ) : result?.length > 0 ? (
-            <Jobs result={result} length={length} />
-          ) : (
-            <>
-              <h3 className="text-lg font-bold mb-2">{length} Jobs</h3>
-              <p className="text-3xl text-center font-semibold">No Jobs found</p>
-            </>
-          )}
-
-          {/* pagination block here */}
-          {result?.length > 0 ? (
-            <div className="flex justify-center mt-4 space-x-8">
-              <button
-                onClick={prevPage}
-                disabled={currentPage === 1}
-                className="hover:underline"
-              >
-                Previous
-              </button>
-              <span className="mx-2">
-                Page {currentPage} of{" "}
-                {Math.ceil(filteredItems?.length / itemsPerPage)}
-              </span>
-              <button
-                onClick={nextPage}
-                disabled={
-                  currentPage === Math.ceil(filteredItems?.length / itemsPerPage)
-                }
-                className="hover:underline"
-              >
-                Next
-              </button>
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
-
-      </div>
+  {/* main content */}
+  <div className="bg-slate-100 md:grid grid-cols-4 gap-8 lg:px-10 px-4 py-10">
+    <div className="col-span-1 bg-slate-50 p-4 rounded">
+      <Sidebar handleChange={handleChange} />
     </div>
+
+    <div className="col-span-3 bg-slate-50 p-4 rounded">
+      {isLoading ? ( // Loading indicator
+        <p className="text-3xl text-center font-semibold">Loading...</p>
+      ) : result?.length > 0 ? (
+        <Jobs result={result} length={length} />
+      ) : (
+        <>
+          <h3 className="text-lg font-bold mb-2">{length} Jobs</h3>
+          <p className="text-3xl text-center font-semibold">No Jobs found</p>
+        </>
+      )}
+
+      {/* pagination block here */}
+      {result?.length > 0 ? (
+        <div className="flex justify-center mt-4 space-x-8">
+          <button
+            onClick={prevPage}
+            disabled={currentPage === 1}
+            className="hover:underline"
+          >
+            Previous
+          </button>
+          <span className="mx-2">
+            Page {currentPage} of{" "}
+            {Math.ceil(filteredItems?.length / itemsPerPage)}
+          </span>
+          <button
+            onClick={nextPage}
+            disabled={
+              currentPage === Math.ceil(filteredItems?.length / itemsPerPage)
+            }
+            className="hover:underline"
+          >
+            Next
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
+    </div>
+  </div>
+</div>
+
   );
 };
 

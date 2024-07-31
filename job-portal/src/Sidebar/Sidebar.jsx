@@ -24,18 +24,31 @@ const Sidebar = ({ handleChange }) => {
         <EmploymentType handleChange={handleChange}/>
     </div>
 
-    <div
-        className={`md:hidden flex flex-cols gap-10 px-2 py-2 bg- rounded-m  `}
-      >
-        <h3 className='text-lg font-bold flex:none mb-2'>Filters</h3>
-        <Location handleChange={handleChange}/>
-        <WorkExperience handleChange={handleChange}/>
-        {/* <div className='sm:hidden'>
-        <EmploymentType  handleChange={handleChange}/>
-        </div> */}
-        
 
+    <div className="flex flex-col gap-4 p-4 bg-white rounded-md">
+  <div className="flex justify-between items-center">
+    <h3 className="text-lg font-bold">Filters</h3>
+    <label htmlFor='reset' className="text-lg inline-block hover:underline text-black font-bold rounded cursor-pointer">
+      <input type="radio" id='reset' name="test" value="" onChange={handleChange} className="appearance-none hidden" />
+      Reset
+    </label>
+  </div>
+  <div className="flex flex-col space-y-4">
+    <div className="flex justify-center space-x-4">
+      <Location handleChange={handleChange} />
+      <WorkExperience handleChange={handleChange} />
     </div>
+    <div className="flex justify-center space-x-4">
+      <Salary handleChange={handleChange} />
+      <EmploymentType handleChange={handleChange} />
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
     </div>
     

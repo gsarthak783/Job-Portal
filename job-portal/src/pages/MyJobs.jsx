@@ -31,9 +31,9 @@ const MyJobs = () => {
 
     setState(status)
     let data = { user, jobId, username, status }
-    let res1 = await axios.put('http://localhost:1234/appliedUsers-api/user-update', data)
+    let res1 = await axios.put('https://job-portal-server-tau-one.vercel.app/appliedUsers-api/user-update', data)
 
-    let res2 = await axios.put('http://localhost:1234/apply-api/job-update', data)
+    let res2 = await axios.put('https://job-portal-server-tau-one.vercel.app/apply-api/job-update', data)
     console.log(res1);
 
     if (res1.data.message === 'Status Updated') {
@@ -52,7 +52,7 @@ const MyJobs = () => {
     try {
       if (userType === 'user') {
         let fetchData = async () => {
-          const res = await axios.get(`http://localhost:1234/apply-api/job/${username}`)
+          const res = await axios.get(`https://job-portal-server-tau-one.vercel.app/apply-api/job/${username}`)
           console.log(res)
           setData(res.data.payload);
           if (res.data.message === 'Jobs found') {
@@ -64,7 +64,7 @@ const MyJobs = () => {
       }
       else {
         let fetchData = async () => {
-          const res = await axios.get(`http://localhost:1234/appliedUsers-api/user/${username}`)
+          const res = await axios.get(`https://job-portal-server-tau-one.vercel.app/appliedUsers-api/user/${username}`)
           console.log(res)
           setData(res.data.payload);
 

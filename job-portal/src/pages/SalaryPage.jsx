@@ -20,7 +20,7 @@ const SalaryPage = () => {
 
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:1234/salary-api/salary-active')
+        const res = await axios.get('https://job-portal-server-tau-one.vercel.app/salary-api/salary-active')
 
         console.log(res)
         setSalary(res.data.payload)

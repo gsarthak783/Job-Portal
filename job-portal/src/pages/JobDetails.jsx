@@ -28,7 +28,7 @@ const JobDetails = () => {
     
     try {
       let fetchData = async () => {
-        const res = await axios.get(`http://localhost:1234/job-api/job/${id}`)
+        const res = await axios.get(`https://job-portal-server-tau-one.vercel.app/job-api/job/${id}`)
         console.log(res)
         setJob(res.data.payload);
       }
@@ -36,7 +36,7 @@ const JobDetails = () => {
       fetchData();
 
       let data = async () => {
-        const res2 = await axios.post('http://localhost:1234/apply-api/job', {
+        const res2 = await axios.post('https://job-portal-server-tau-one.vercel.app/apply-api/job', {
           username: username,
           jobId: id,
         })
@@ -71,7 +71,7 @@ const JobDetails = () => {
         // creating data object to apply for job
         let data = { ...job, status }
 
-        const res1 = await axios.post('http://localhost:1234/apply-api/job-apply', {
+        const res1 = await axios.post('https://job-portal-server-tau-one.vercel.app/apply-api/job-apply', {
           username: username,
           resumeUrl: resumeUrl,
           appliedJobs: data
@@ -80,7 +80,7 @@ const JobDetails = () => {
 
         let user = { ...currentUser, status }
         console.log("Company username" + companyUsername)
-        const res2 = await axios.post('http://localhost:1234/appliedUsers-api/user-apply', {
+        const res2 = await axios.post('https://job-portal-server-tau-one.vercel.app/appliedUsers-api/user-apply', {
           username: companyUsername,
           jobs: [{
             jobId: id,

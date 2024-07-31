@@ -4,7 +4,7 @@ import axios from 'axios';
  
 export const userLoginPromiseStatus = createAsyncThunk('user-login',async (userObj,thunkApi)=>{
    try{
-     let res = await axios.post('http://localhost:1234/user-api/user-login',userObj)
+     let res = await axios.post('https://job-portal-server-tau-one.vercel.app/user-api/user-login',userObj)
   
     if(res.data.message==='Login Successful'){
         localStorage.setItem('token',res.data.token)
@@ -23,7 +23,7 @@ return thunkApi.rejectWithValue(err);
 
 export const refreshCurrentUser = createAsyncThunk('user', async (userObj, thunkApi) => {
     try {
-    const res = await axios.post('http://localhost:1234/user-api/user', userObj);
+    const res = await axios.post('https://job-portal-server-tau-one.vercel.app/user-api/user', userObj);
         return res.data;
     } catch (err) {
         return thunkApi.rejectWithValue(err);

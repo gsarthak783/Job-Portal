@@ -67,7 +67,7 @@ const CreateJob = () => {
       ) {
         // console.log(formData)
         //make http post request
-        const res = await axios.post('http://localhost:1234/job-api/job-create', formData)
+        const res = await axios.post('https://job-portal-server-tau-one.vercel.app/job-api/job-create', formData)
         console.log(res);
 
 

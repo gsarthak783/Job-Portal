@@ -23,7 +23,7 @@ const Footer = () => {
         });
       }
       else{
-        const res = await axios.post("http://localhost:1234/newsletter-api/newsletter-create", userObj)
+        const res = await axios.post("https://job-portal-server-tau-one.vercel.app/newsletter-api/newsletter-create", userObj)
       console.log(res.data)
 
       if(res.status===201){

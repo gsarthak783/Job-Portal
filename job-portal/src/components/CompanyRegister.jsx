@@ -39,7 +39,7 @@ const CompanyRegister = (user) => {
         formData.append('files', image)
         console.log(formData)
         //make http post request
-        const res = await axios.post('http://localhost:1234/user-api/create-user', formData)
+        const res = await axios.post('https://job-portal-server-tau-one.vercel.app/user-api/create-user', formData)
         console.log(res);
         if (res.status === 201) {
           // toast.success('Register Successful')

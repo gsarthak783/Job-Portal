@@ -47,7 +47,7 @@ const ProfilePage = () => {
 
       console.log(formData)
       //make http post request
-      const res = await axios.post('http://localhost:1234/user-api/user-update', formData)
+      const res = await axios.post('https://job-portal-server-tau-one.vercel.app/user-api/user-update', formData)
       console.log(res);
       if (res.data.message === 'Resume Updated') {
         dispatch(refreshCurrentUser({
